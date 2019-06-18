@@ -1,5 +1,1 @@
-world
-a
-b
-c
-d
+New content
