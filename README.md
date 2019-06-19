@@ -1,3 +1,1 @@
 # devops-course-itea
-
-Hello
