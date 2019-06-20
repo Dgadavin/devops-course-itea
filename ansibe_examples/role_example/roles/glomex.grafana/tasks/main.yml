@@ -1,0 +1,72 @@
+---
+
+- name: Test distribution is Redhat
+  assert:
+    that: ansible_os_family == "RedHat"
+
+#http://docs.grafana.org/installation/rpm/
+- name: Create Grafana YUM repo file
+  yum_repository:
+    name: grafana
+    description: Internal Grafana repo
+    baseurl: https://packagecloud.io/grafana/stable/el/6/$basearch
+    gpgcheck: no
+
+- name: Disable old yum repos
+  yum_repository:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - mirror-p7s1-repo
+    - mirror-zabbix24
+
+- name: Install Grafana package
+  package:
+    name: grafana-{{ build_version }}.x86_64
+    state: present
+  notify:
+    - Restart Grafana
+
+- name: Create Grafana config file
+  template:
+    src: grafana.ini.j2
+    dest: /etc/grafana/grafana.ini
+  notify:
+    - Restart Grafana
+
+- name: Install Grafana plugins
+  command: grafana-cli plugins install {{ item }}
+  with_items: "{{ grafana_plugins }}"
+  notify:
+    - Restart Grafana
+
+- name: install plugins from items
+  copy: src=files/{{ item }} dest=/var/lib/grafana/plugins/ force=yes
+  with_items:
+    - glomex-api-app
+    - lookup-panel
+    - trend-panel
+    - trend-panel-v2
+  notify:
+    - Restart Grafana
+
+- name: create /var/lib/grafana/tmp
+  file: path=/var/lib/grafana/tmp state=directory
+
+- name: Enable the Grafana service
+  service:
+    name: grafana-server
+    enabled: yes
+  notify:
+    - Restart Grafana
+
+- name: Start the Grafana service
+  service:
+    name: grafana-server
+    state: running
+  notify:
+    - Restart Grafana
+
+- name: Wait for Grafana port
+  wait_for:
+    port: "{{ grafana_port }}"
