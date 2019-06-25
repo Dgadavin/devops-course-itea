@@ -15,7 +15,7 @@ pipelineJob("test-pipeline") {
             	git {
                   remote {
                         github("dgadavin/devops-course-itea", 'http')
-                        branch("\master")
+                        branch("master")
                   }
               }
         }
