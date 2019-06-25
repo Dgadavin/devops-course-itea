@@ -115,8 +115,7 @@ def seedJobXml = """<?xml version='1.0' encoding='UTF-8'?>
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>git@github.com:/dgadavin/devops-course-itea</url>
-        <credentialsId>github-deploy</credentialsId>
+        <url>https://github.com/Dgadavin/devops-course-itea.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
