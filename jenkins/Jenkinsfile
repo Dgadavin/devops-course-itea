@@ -12,7 +12,7 @@ node {
             sh 'echo Hello world'
         }
         stage('Run the tests') {
-            sh 'echo "Hello. here is tests'
+            sh 'echo "Hello. here is tests"'
         }
     } catch (e) {
         sh 'exit 1'
