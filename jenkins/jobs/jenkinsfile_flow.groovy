@@ -25,5 +25,3 @@ pipelineJob("test-pipeline") {
     }
 
  }
-
-}
