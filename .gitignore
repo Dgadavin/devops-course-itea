@@ -1,0 +1,17 @@
+*.pyc
+.idea
+python-logger.log
+/venv/
+*.sublime-workspace
+/.venv/
+/__pycache__/
+/mes-infra-php-jenkins-qa-generated-cf-template.json
+/mes-infra-php-jenkins-prod-generated-cf-template.json
+/mes-infra-php-jenkins-stage-generated-cf-template.json
+
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
