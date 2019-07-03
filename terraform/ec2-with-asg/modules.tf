@@ -30,7 +30,7 @@ resource "aws_security_group" "asg-sg" {
 
 
 module "ecs-instances" {
-  source = "/Users/feriartos/Documents/devops-code/devops-course-itea/terraform/asg_module"
+  source = "PATH_TO_MODULE"
   environment = "dev"
   name = "Itea-ASG"
   aws_ami = "${var.ami_id}"

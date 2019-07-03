@@ -11,9 +11,9 @@ provider "aws" {
 //  region     = "${var.aws_region}"
 //}
 
-//provider "random" {
-//}
+provider "random" {
+}
 //
-//terraform {
-//  backend "s3" {}
-//}
+terraform {
+  backend "s3" {}
+}
