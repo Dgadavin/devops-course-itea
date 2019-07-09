@@ -20,3 +20,8 @@ terraform init -backend-config=config/${TF_VAR_env}.state.conf
 terraform plan -var-file=environment/${TF_VAR_env}.tfvars
 terraform apply -var-file=environment/${TF_VAR_env}.tfvars
 ```
+```bash
+Note:
+To use backet S3, you must install "awscli" by typing "pip install awscli".
+Then type "aws configure" and enter "aws access key" and "aws secret access key".
+```
