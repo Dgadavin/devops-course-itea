@@ -16,7 +16,7 @@ export TF_VAR_env=dev
 **Don't change the bucket or region**
 
 ```bash
-terraform init -backend-config=config/${TF_VAR_env}-state.conf
+terraform init -backend-config=config/${TF_VAR_env}.state.conf
 terraform plan -var-file=environment/${TF_VAR_env}.tfvars
 terraform apply -var-file=environment/${TF_VAR_env}.tfvars
 ```
