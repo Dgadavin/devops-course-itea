@@ -1,0 +1,22 @@
+[
+    {
+      "portMappings": [
+        {
+          "hostPort": 24224,
+          "protocol": "tcp",
+          "containerPort": 24224
+        }
+      ],
+      "environment": [{
+          "name": "ELK_URL",
+          "value": "${elk_url}"
+        }
+      ],
+      "cpu": 128,
+      "memory": 512,
+      "memoryReservation": 192,
+      "image": "${docker_image}",
+      "essential": true,
+      "name": "${service_name}"
+    }
+]
