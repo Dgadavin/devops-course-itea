@@ -13,9 +13,20 @@ git config --global core.editor vim
 git init
 git remote add origin <origin-adress>
 touch README.md
+git status
+git diff
 git add .
-git commit -m "Add Readme"
-git push origin <branch-name>
+git commit -m "Add Readme" # Закомитить изменения в локальную базу
+git push origin <branch-name> # Отправить изменения на сервер
+```
+
+# Клонирование репозитария
+
+```bash
+git clone https://github.com/Dgadavin/devops-course-itea.git # по логину и паролю если приватный репо
+git clone git@github.com:Dgadavin/devops-course-itea.git # с помощью ssh key
+git fetch # Получить все ветки
+git pull # Вытянуть все изменения по всем веткам
 ```
 
 # Создание новой ветки
