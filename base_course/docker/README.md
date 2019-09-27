@@ -12,6 +12,7 @@ docker run -i -t --rm ubuntu /bin/bash
 docker run --name daemon -d ubuntu /bin/sh -c "while true; do echo hello world; sleep 1; done"
 # —name daemon назначает имя новому контейнеру. Если вы его не укажете, имя сгенерируется и назначится автоматически.
 # -d запускает контейнер в фоновом режиме («демонизирует» его).
+docker exec -it <container-id> bash
 ```
 
 ### Run container with curl
