@@ -8,6 +8,7 @@ We will use Amazon Linux v1
 ```bash
 yum update
 yum install wget
+yum install git # Only in container
 yum install syslog # Only in container
 wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
 rpm --import http://pkg.jenkins-ci.org/redhat-stable/jenkins-ci.org.key
