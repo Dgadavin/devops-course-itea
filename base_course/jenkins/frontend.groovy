@@ -3,10 +3,11 @@ folder('Frontend') {
 }
 
 def credentialsToUse = "github-deploy"
+def environment = "dev"
 
 def services = [
-  "repo1",
-  "repo2"
+  "devops-course-itea",
+  "devops-course-itea-test"
 ]
 
 services.each {
@@ -16,13 +17,13 @@ services.each {
       stringParam('BRANCH', "dev")
     }
     parameters {
-      stringParam('ENVIRONMENT', "${environment}")
+      stringParam('ENVIRONMENT', "dev")
     }
     scm {
       git {
         remote {
-            url("/${service}.git")
-            credentials(credentialsToUse)
+            github("Dgadavin/${service}", 'https')
+            // credentials(credentialsToUse)
             branch('$BRANCH')
         }
       }
@@ -40,7 +41,6 @@ services.each {
         tar xf node-$NODE_VERSION-linux-x64.tar.xz
       fi
       export PATH=$WORKSPACE/node-$NODE_VERSION-linux-x64/bin/:$PATH
-      NODE_ENV=$ENVIRONMENT
       echo "============="
       npm --version
       node --version
@@ -49,7 +49,7 @@ services.each {
 
       shell(command)
     }
-    if (environment == "dev") {
+    if (service == "devops-course-itea-test") {
       steps {
         def command = '''#!/bin/bash +x
         echo "checking if node and npm package are already downloaded"
