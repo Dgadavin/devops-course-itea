@@ -32,6 +32,6 @@ ansible-playbook ansible.yml -i /hosts --connection local
 ## Install Ansible with python
 ```bash
 curl -O https://bootstrap.pypa.io/get-pip.py
-python get-pip.py --user
-pip install ansible --user
+python get-pip.py
+pip install ansible
 ```
