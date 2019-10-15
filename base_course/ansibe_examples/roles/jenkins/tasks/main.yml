@@ -13,6 +13,11 @@
     jenkins_repo_key_url: "{{ __jenkins_repo_key_url }}"
   when: jenkins_repo_key_url is not defined
 
+- name: Install java-1.8
+  package:
+    name: "java-1.8.0"
+    state: present
+    
 - name: Define jenkins_pkg_url
   set_fact:
     jenkins_pkg_url: "{{ __jenkins_pkg_url }}"
