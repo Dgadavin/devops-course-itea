@@ -14,7 +14,7 @@
                 "AMI": "ami-3e3be423"
             },
             "us-east-1": {
-                "AMI": "ami-7f418316"
+                "AMI": "ami-00eb20669e0990cb"
             },
             "us-west-1": {
                 "AMI": "ami-951945d0"
