@@ -19,6 +19,8 @@ services:
      - "/var/run/docker.sock:/var/run/docker.sock"
     links:
        - logstash
+    depends_on:
+        - logstash
   kibana:
     image: kibana:6.5.2
     environment:
