@@ -1,0 +1,13 @@
+FROM ubuntu:latest
+RUN apt-get update
+RUN apt-get install --no-install-recommends --no-install-suggests -y curl
+ENV SITE_URL http://google.com/
+WORKDIR /data
+COPY some_file.txt /data
+VOLUME /data
+COPY new_file.txt /data
+CMD sh -c "curl -L $SITE_URL > /data/results"
+
+FROM curl:1.0
+
+# docker run -v my_data:/data

@@ -1,0 +1,9 @@
+FROM alpine
+COPY . .
+
+ENV SHA256_hash=sjdhwufghweocbdwljy29r823ydohsvoiwefh
+
+RUN apk update --no-cache && apk add git
+ARG version=1.1
+# ENV VERSION=$version
+CMD echo $VERSION

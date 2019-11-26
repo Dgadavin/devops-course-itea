@@ -5,5 +5,6 @@ COPY index.html  /usr/share/nginx/html
 
 ENV NGINX_VERSION=1.2
 COPY entrypoint.sh entrypoint.sh
+RUN chmod u+x entrypoint.sh
 
-ENTRYPOINT ["bash", "entrypoint.sh"]
+CMD ["./entrypoint.sh"]
