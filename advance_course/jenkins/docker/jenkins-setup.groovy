@@ -26,6 +26,19 @@ def environment = System.getenv('ENV')
 // plugin settings
 def inst = Jenkins.getInstance()
 
+// LDAP settings
+//String server = ''
+//String rootDN = ''
+//String userSearchBase = '\'
+//String userSearch = ''
+//String groupSearchBase = ''
+//String managerDN = ''
+//boolean inhibitInferRootDN = true
+//def managerPassword = ''
+//SecurityRealm ldap_realm = new LDAPSecurityRealm(server, rootDN, userSearchBase, userSearch, groupSearchBase, managerDN, managerPassword, inhibitInferRootDN)
+//Jenkins.instance.setSecurityRealm(ldap_realm)
+//Jenkins.instance.save()
+
 
 def allure = inst.getDescriptor("ru.yandex.qatools.allure.jenkins.tools.AllureCommandlineInstallation")
 def installer = new AllureCommandlineInstaller("2.3")
