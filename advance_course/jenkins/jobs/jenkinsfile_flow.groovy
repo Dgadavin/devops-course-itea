@@ -19,7 +19,7 @@ pipelineJob("test-pipeline") {
                   }
               }
         }
-        scriptPath("jenkins/Jenkinsfile")
+        scriptPath("advance_course/jenkins/Jenkinsfile")
       }
 
     }
