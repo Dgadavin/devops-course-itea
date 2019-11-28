@@ -9,10 +9,7 @@ RUN apt-get update && apt-get install -y apt-transport-https lsb-release ca-cert
  && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list \
  && echo "deb http://ftp.ua.debian.org/debian testing main" >> /etc/apt/sources.list \
  && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
- && apt-get update \
- && apt-get install -y php7.1-mbstring php7.1-cli php7.1-curl php7.1-xml \
- php7.1-pdo php7.1-xdebug php7.1-mcrypt php7.1-gd php7.1-zip ruby-full \
- postgresql-9.6 postgresql-server-dev-9.6 \
+ && apt-get update && \
  groovy
 
 COPY jenkins-setup.groovy /usr/share/jenkins/ref/init.groovy.d/initial-setup.groovy
