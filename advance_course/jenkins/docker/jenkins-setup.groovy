@@ -148,7 +148,7 @@ def seedJobXml = """<?xml version='1.0' encoding='UTF-8'?>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.52">
-      <targets>jenkins/jobs/*.groovy</targets>
+      <targets>advance_course/jenkins/jobs/*.groovy</targets>
       <usingScriptText>false</usingScriptText>
       <ignoreExisting>false</ignoreExisting>
       <ignoreMissingFiles>false</ignoreMissingFiles>
