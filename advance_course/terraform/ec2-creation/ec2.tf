@@ -1,11 +1,11 @@
-data "terraform_remote_state" "base-stack" {
-  backend = "s3"
-  config = {
-    bucket = "terraform-dp-dev-state"
-    key    = "ec2Creation/terraform.tfstate"
-    region = "eu-west-1"
-  }
-}
+# data "terraform_remote_state" "base-stack" {
+#   backend = "s3"
+#   config = {
+#     bucket = "terraform-dp-dev-state"
+#     key    = "ec2Creation/terraform.tfstate"
+#     region = "eu-west-1"
+#   }
+# }
 
 resource "aws_key_pair" "deployer" {
   key_name   = "itea-test-key"
@@ -14,10 +14,11 @@ resource "aws_key_pair" "deployer" {
 
 resource "aws_instance" "web" {
   ami           = "${var.ami_id}"
-  instance_type = "t2.micro"
+  instance_type = "${var.instance_type}"
   iam_instance_profile = "${aws_iam_instance_profile.instance_profile.name}"
   key_name = "${aws_key_pair.deployer.key_name}"
-  subnet_id = "subnet-e9dcdf9e"
+  # vpc_security_group_ids = ["${aws_security_group.instance-sg.id}"]
+  subnet_id = "${var.subnet_id}"
 
   tags = {
     Name = "HelloWorld"
