@@ -5,6 +5,10 @@ provider "aws" {
 # provider "random" {
 # }
 # //
-# terraform {
-#   backend "s3" {}
-# }
+terraform {
+  backend "s3" {
+  #   bucket = "terraform-dp-dev-state"
+  #   key = "ec2/tf.state"
+  #   # region = "us-east-2"
+  # }
+}

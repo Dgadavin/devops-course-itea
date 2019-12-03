@@ -1,3 +1,13 @@
+resource "aws_iam_instance_profile" "instance_profile" {
+  name = "s3-read-instance-profile-e"
+  role = "${aws_iam_role.instance-role.name}"
+}
+
+resource "aws_iam_role_policy_attachment" "policy_atachment" {
+   role       = "${aws_iam_role.instance-role.name}"
+   policy_arn = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
+}
+
 resource "aws_iam_role" "instance-role" {
   name = "s3-read-only-itea"
 
@@ -20,14 +30,4 @@ EOF
   tags = {
     Name = "My-role"
   }
-}
-
-resource "aws_iam_instance_profile" "instance_profile" {
-  name = "s3-read-instance-profile-e"
-  role = "${aws_iam_role.instance-role.name}"
-}
-
-resource "aws_iam_role_policy_attachment" "policy_atachment" {
-   role       = "${aws_iam_role.instance-role.name}"
-   policy_arn = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
 }
