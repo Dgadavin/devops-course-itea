@@ -12,7 +12,7 @@ data "template_file" "user_data" {
 }
 
 resource "aws_security_group" "asg-sg" {
-  name   = "ClusterSecurityGroup"
+  name   = "ClusterSecurityGroup-test"
   vpc_id = "${var.VPCId}"
   ingress {
     from_port         = 80
@@ -28,9 +28,8 @@ resource "aws_security_group" "asg-sg" {
   }
 }
 
-
 module "ecs-instances" {
-  source = "PATH_TO_MODULE"
+  source = "../asg_module"
   environment = "dev"
   name = "Itea-ASG"
   aws_ami = "${var.ami_id}"
