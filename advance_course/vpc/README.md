@@ -68,3 +68,7 @@ Download the OPVN config
 ```
 aws ec2 export-client-vpn-client-configuration --client-vpn-endpoint-id endpoint_id --output text>client-config.ovpn
 ```
+
+Open config with editor and add random string to the begining of remote
+Add client1.domain.tld.crt content to `<cert></cert>` and client1.domain.tld.key content to
+`<key></key>` to the and of file
