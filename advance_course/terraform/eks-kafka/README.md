@@ -7,6 +7,11 @@ Unzip and copy terraform into /usr/local/bin/terraform12
 cp terraform /usr/local/bin
 ```
 
+## Install AWS kubectl and IAM authenticator
+
+https://docs.aws.amazon.com/en_us/eks/latest/userguide/install-kubectl.html
+https://docs.aws.amazon.com/en_us/eks/latest/userguide/install-aws-iam-authenticator.html
+
 ## Configure for manual deploy
 
 Before start we need to set ENV variables
