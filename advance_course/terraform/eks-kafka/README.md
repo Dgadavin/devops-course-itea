@@ -34,6 +34,11 @@ cp kubeconfig_itea-dev-k8s ~/.kube/config
 kubectl get nodes
 ```
 
+## Update k8s config
+```bash
+aws eks --region <REGION>  update-kubeconfig --name <CLUSTER_NAME>
+```
+
 ## Install Helm
 
 ```bash
