@@ -60,7 +60,7 @@ helm install itea-kafka confluentinc/cp-helm-charts
 
 ```bash
 # Login to kafka POD
-kubectl exec -it <POD_NAME> bash -c <CONTAINER_NAME>
+kubectl exec -it itea-kafka-cp-kafka-0 bash -c cp-kafka-broker
 # Create topic
 kafka-topics --zookeeper itea-kafka-cp-zookeeper-headless:2181 \
              --topic itea-kafka-topic1 \
@@ -84,10 +84,10 @@ We created in `kafka` folder `custom_value.yaml` file to verride some default ka
 We will enable Load balancer for Kafka rest service.
 
 ```bash
-kafka upgrade itea-kafka -f kafka/custom_values.yaml confluentinc/cp-helm-charts
+helm upgrade itea-kafka -f kafka/custom_values.yaml confluentinc/cp-helm-charts
 ```
 
-curl -XPOST -H "Content-Type: application/vnd.kafka.json.v2+json" -d @kafka/test.json <REST-URL>/topics/<TOPIC-NAME>
+curl -XPOST -H "Content-Type: application/vnd.kafka.json.v2+json" -d @kafka/test.json <REST-URL>:8082/topics/itea-kafka-topic1
 
 ## Monitoring with Prometheus
 
