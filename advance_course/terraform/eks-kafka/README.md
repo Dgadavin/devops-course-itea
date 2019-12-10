@@ -4,7 +4,7 @@ Download 0.12 or higher version of terraform package from official site
 https://www.terraform.io/downloads.html
 Unzip and copy terraform into /usr/local/bin/terraform12
 ```bash
-cp terraform /usr/local/bin
+cp terraform /usr/local/bin/terrafomr12
 ```
 
 ## Install AWS kubectl and IAM authenticator
