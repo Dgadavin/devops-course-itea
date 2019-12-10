@@ -25,6 +25,7 @@ export TF_VAR_env=dev
 terraform init
 export TF_VAR_vpc_id=$(aws ec2 describe-vpcs --filters "Name=isDefault, Values=true" --query 'Vpcs[*].{id:VpcId}' --output text --region us-east-1)
 export TF_VAR_subnet_id=$(aws ec2 describe-subnets --query 'Subnets[0].{id:SubnetId}' --output text --region us-east-1)
+export TF_VAR_subnet_id2=$(aws ec2 describe-subnets --query 'Subnets[1].{id:SubnetId}' --output text --region us-east-1)
 terraform12 plan -var-file=environment/${TF_VAR_env}.tfvars
 terraform12 apply -var-file=environment/${TF_VAR_env}.tfvars
 ```

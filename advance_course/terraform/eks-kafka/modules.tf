@@ -2,7 +2,7 @@ module "my-cluster" {
   source       = "terraform-aws-modules/eks/aws"
   cluster_name = "itea-${lower(var.Environment)}-${var.service_name}"
   vpc_id       = var.vpc_id
-  subnets = [var.subnet_id]
+  subnets = [var.subnet_id, var.subnet_id2]
   workers_additional_policies = ["arn:aws:iam::aws:policy/AmazonRoute53FullAccess",
                                  "arn:aws:iam::aws:policy/CloudWatchReadOnlyAccess",
                                  "arn:aws:iam::aws:policy/AmazonS3FullAccess"]
