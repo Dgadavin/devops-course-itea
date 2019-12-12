@@ -94,8 +94,8 @@ curl -XPOST -H "Content-Type: application/vnd.kafka.json.v2+json" -d @kafka/test
 Install prometheus from Helm chart
 
 ```bash
-helm install prometheus stable/prometheus
-helm install grafana stable/grafana
+helm install prom-itea --set server.service.type="LoadBalancer" stable/prometheus
+helm install grafana-itea --set service.type="LoadBalancer" stable/grafana
 
 Import [Confluetn Grafana dashboard](https://github.com/confluentinc/cp-helm-charts/blob/master/grafana-dashboard/confluent-open-source-grafana-dashboard.json)
 ```
