@@ -54,10 +54,10 @@ resource "aws_s3_bucket" "origin" {
 }
 
 resource "aws_cloudfront_distribution" "default" {
-  enabled             = "${var.enabled}"
-  is_ipv6_enabled     = "${var.is_ipv6_enabled}"
-  comment             = "${var.comment}"
-  price_class         = "${var.price_class}"
+  enabled         = "${var.enabled}"
+  is_ipv6_enabled = "${var.is_ipv6_enabled}"
+  comment         = "${var.comment}"
+  price_class     = "${var.price_class}"
 
   aliases = ["${var.cloudfront_aliases}"]
 
@@ -65,6 +65,7 @@ resource "aws_cloudfront_distribution" "default" {
     domain_name = "${aws_s3_bucket.origin.bucket_regional_domain_name}"
     origin_id   = "${var.service_name}-${var.Environment}"
     origin_path = "${var.origin_path}"
+
     s3_origin_config {
       origin_access_identity = "${aws_cloudfront_origin_access_identity.default.cloudfront_access_identity_path}"
     }
@@ -98,9 +99,10 @@ resource "aws_cloudfront_distribution" "default" {
       event_type = "viewer-request"
       lambda_arn = "${aws_lambda_function.basic-auth-function.qualified_arn}"
     }
-    default_ttl            = "${var.default_ttl}"
-    min_ttl                = "${var.min_ttl}"
-    max_ttl                = "${var.max_ttl}"
+
+    default_ttl = "${var.default_ttl}"
+    min_ttl     = "${var.min_ttl}"
+    max_ttl     = "${var.max_ttl}"
   }
 
   restrictions {

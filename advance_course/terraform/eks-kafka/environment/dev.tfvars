@@ -1,7 +1,7 @@
 Environment = "dev"
 
 # Common vars
-workers_instance_type = "t3.micro"
+workers_instance_type = "t3.medium"
 
 desired_capacity = 3
 
