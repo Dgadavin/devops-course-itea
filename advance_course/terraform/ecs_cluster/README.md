@@ -15,8 +15,14 @@ export TF_VAR_env=dev
 **Please check if in config/\<env\>-state.conf in key you have valid service name.**
 **Don't change the bucket or region**
 
+Before start terraform commands please do:
+
 ```bash
-terraform init -backend-config=config/${TF_VAR_env}.state.conf
+source ~/aws_creds.txt
+```
+
+```bash
+terraform init
 terraform plan -var-file=environment/${TF_VAR_env}.tfvars
 terraform apply -var-file=environment/${TF_VAR_env}.tfvars
 ```

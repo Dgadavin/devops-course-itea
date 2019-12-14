@@ -1,8 +1,6 @@
 provider "aws" {
-  profile    = "${var.profile_name}"
-  region     = "eu-west-1"
+  region = "us-east-1"
 }
-
 
 // Provider for users with access and secret keys
 //provider "aws" {
@@ -11,9 +9,11 @@ provider "aws" {
 //  region     = "${var.aws_region}"
 //}
 
+
 //provider "random" {
 //}
 //
 //terraform {
 //  backend "s3" {}
 //}
+

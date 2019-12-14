@@ -1,3 +1,5 @@
-ami_id = "ami-0862aabda3fb488b5"
-VPCId = "vpc-af2918ca"
-subnet_ids = ["subnet-e9dcdf9e", "subnet-e05c07b9"]
+ami_id = "ami-0b84afb18c43907ba"
+
+VPCId = "vpc-954b14f1"
+
+subnet_ids = ["subnet-dc984384", "subnet-db1a79e6"]
