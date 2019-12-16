@@ -2,7 +2,7 @@ data "terraform_remote_state" "main-cluster" {
   backend = "s3"
 
   config = {
-    bucket = "my-state-test-bucket-1"
+    bucket = "@@bucket@@"
     key    = "${var.main_cluster_stack_name}/terraform.tfstate"
     region = "us-east-1"
   }
