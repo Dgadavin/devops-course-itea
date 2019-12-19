@@ -28,6 +28,12 @@
       "memoryReservation": 128,
       "image": "${docker_image}",
       "essential": true,
-      "name": "${service_name}"
+      "name": "${service_name}",
+      "logConfiguration": {
+      "logDriver": "fluentd",
+      "options": {
+        "tag": "nginx.${service_name}.{{.ID}}"
+      }
+    }
     }
 ]

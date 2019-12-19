@@ -1,4 +1,3 @@
-variable "profile_name" { default = "glomex" }
 variable "ami_id" {}
 
 variable "aws_access_key" {}
@@ -10,4 +9,7 @@ variable "aws_region" {
 }
 
 variable "VPCId" {}
-variable "subnet_ids" { type = "list" }
+
+variable "subnet_ids" {
+  type = "list"
+}

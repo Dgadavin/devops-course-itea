@@ -1,0 +1,29 @@
+{
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Action": [
+                  "autoscaling:CompleteLifecycleAction",
+                  "logs:CreateLogGroup",
+                  "logs:CreateLogStream",
+                  "logs:PutLogEvents",
+                  "ec2:DescribeInstances",
+                  "ec2:DescribeInstanceAttribute",
+                  "ec2:DescribeInstanceStatus",
+                  "ec2:DescribeHosts",
+                  "ecs:ListContainerInstances",
+                  "ecs:SubmitContainerStateChange",
+                  "ecs:SubmitTaskStateChange",
+                  "ecs:DescribeContainerInstances",
+                  "ecs:UpdateContainerInstancesState",
+                  "ecs:ListTasks",
+                  "ecs:DescribeTasks",
+                  "sns:*"
+              ],
+              "Resource": [
+                  "*"
+              ],
+              "Effect": "Allow"
+          }
+      ]
+}
