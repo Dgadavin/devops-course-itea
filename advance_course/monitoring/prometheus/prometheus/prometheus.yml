@@ -1,0 +1,51 @@
+# my global config
+global:
+  scrape_interval:     15s # By default, scrape targets every 15 seconds.
+  evaluation_interval: 15s # By default, scrape targets every 15 seconds.
+
+  external_labels:
+      monitor: 'my-project'
+
+# Load and evaluate rules in this file every 'evaluation_interval' seconds.
+rule_files:
+  - 'alert.rules'
+
+alerting:
+  alertmanagers:
+  - scheme: http
+    static_configs:
+    - targets:
+      - "alertmanager:9093"
+
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: 'prometheus'
+    scrape_interval: 5s
+    static_configs:
+         - targets: ['localhost:9090']
+
+
+  - job_name: 'cadvisor'
+    scrape_interval: 5s
+    static_configs:
+         - targets: ['cadvisor:8080']
+
+  # - job_name: 'node-exporter'
+  #   scrape_interval: 5s
+  #   static_configs:
+  #        - targets: ['node-exporter:9100']
+
+  - job_name: 'node'
+    ec2_sd_configs:
+      - region: us-east-1
+        # access_key: PUT_THE_ACCESS_KEY_HERE
+        # secret_key: PUT_THE_SECRET_KEY_HERE
+        port: 9100
+    relabel_configs:
+        # Only monitor instances with a Name starting with "SD Demo"
+      - source_labels: [__meta_ec2_tag_Name]
+        regex: Monitoring.*
+        action: keep
+        # Use the instance ID as the instance label
+      - source_labels: [__meta_ec2_instance_id]
+        target_label: instance
