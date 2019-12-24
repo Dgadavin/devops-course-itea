@@ -11,6 +11,6 @@ RUN apt-get update \
       ruby-dev \
       wget bzip2 gnupg dirmngr \
     "
-COPY fluent.conf /fluentd/etc/fluentd.conf
 RUN fluent-gem install fluent-plugin-grok-parser fluent-plugin-s3 fluent-plugin-aws-elasticsearch-service
+COPY fluent.conf /fluentd/etc/fluentd.conf
 CMD fluentd -c /fluentd/etc/fluentd.conf -p /fluentd/plugins $FLUENTD_OPT

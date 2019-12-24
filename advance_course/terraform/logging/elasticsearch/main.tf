@@ -2,7 +2,7 @@ data "terraform_remote_state" "main-cluster" {
   backend = "s3"
 
   config = {
-    bucket = "@@bucket@@"
+    bucket = "my-state-test-bucket-1"
     key    = "${var.main_cluster_stack_name}/terraform.tfstate"
     region = "us-east-1"
   }
@@ -13,7 +13,7 @@ resource "aws_security_group" "allow_ecs_cluster_to_es" {
   description = "Allow ES access for to communicate with ${var.main_cluster_stack_name}"
   vpc_id      = "${var.vpc_id}"
 
-  ingress {
+  ingress = {
     from_port = 0
     to_port   = 65535
     protocol  = "tcp"
