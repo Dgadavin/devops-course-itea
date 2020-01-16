@@ -18,6 +18,6 @@ After please clone our `devops-course-itea` repo
 
 ```bash
 git clone https://github.com/Dgadavin/devops-course-itea.git
-cd advance_course/monitoring/prometheus
+cd devops-course-itea/advance_course/monitoring/prometheus
 docker-compose up
 ```
