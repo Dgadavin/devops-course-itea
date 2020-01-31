@@ -4,7 +4,7 @@
 
 ```bash
 touch /hosts
-Puth sush content
+Puth such content
 [local]
 localhost
 ```
