@@ -4,7 +4,7 @@
 
 ```bash
 touch /hosts
-Puth such content
+Put such content
 [local]
 localhost
 ```
